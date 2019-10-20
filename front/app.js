@@ -1,0 +1,1 @@
+const ModuloPrincipal = angular.module("heroi", ["ngMessages"]);
