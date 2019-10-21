@@ -29,7 +29,6 @@ public class JogadorService {
 		
 		dao.insert(parser.toEntity(jogadorDto));
 		return jogadorDto;
-		
 	}
 	
 	public JogadorDto pesquisarPorNick(String nome) {

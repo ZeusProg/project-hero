@@ -26,4 +26,5 @@ public class HeroiApi {
 	public Response listar() {
 		return Response.ok(heroiService.listar()).build();
 	}
+	
 }

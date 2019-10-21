@@ -5,64 +5,29 @@
 	<title>Lista de Herois</title>
 	<link rel="stylesheet" type="text/css" href="./app/lib/bootstrap/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="./app/css/app.css">
-	<script src="./app/lib/angular/angular.js"></script>
+	
+	<script src="./node_modules/angular/angular.min.js"></script>
 	<script src="./app/lib/angular/angular-messages.js"></script>
+	<script src="./node_modules/angular-route/angular-route.min.js"></script>
+
+
 	<script src="./app.js"></script>
+	<script src="./app/routes.js"></script>
 	<script src="./app/js/controllers/CadastroController.js"></script>
 	<script src="./app/js/services/CadastroService.js"></script>
 	<script src="./app/js/controllers/LoginController.js"></script>
 	<script src="./app/js/services/LoginService.js"></script>
 </head>
 
-<body ng-controller="LoginController as loginCtrl" ng-init="loginCtrl.init()">
+<body >
 	<div class="jumbotron">
-		<h3>{{loginCtrl.titulo}}</h3>
-		
-		 {{loginCtrl.message}}
-		<hr />
-		<div ng-if="loginCtrl.login">
-			<form>
-				<div class="form-group">
-					<label>Login</label>
-					<input type="texto" class="form-control" placeholder="SuperFulano012" ng-model="loginCtrl.autenticar.nickname" ng-required="true">
-				</div>
-				<div class="form-group">
-					<label>Senha</label>
-					<input type="password" class="form-control" ng-model="loginCtrl.autenticar.senha" ng-required="true">
-				</div>
-				<button class="btn btn-primary" ng-click="loginCtrl.irCadastrar()">Cadastrar</button>
-			</form>
-		</div>
-		<div ng-controller="CadastroController as cadCtrl" ng-if="loginCtrl.cadastrar">
-			<h3>{{cadCtrl.message}}</h3>
-			<form ng-submit="cadCtrl.cadastro(cadCtrl.user)">
-				<div class="form-group">
-					<label>Login</label>
-					<input type="texto" class="form-control" placeholder="SuperFulano012" ng-model="cadCtrl.user.nickname" ng-required="true">
-				</div>
-				<div class="form-group">
-					<label>Senha</label>
-					<input type="password" class="form-control" ng-model="cadCtrl.user.senha" ng-required="true">
-				</div>
-				
-				<div class="form-group">
-					<label>Heroi</label>
-					<select name="heroi"  class="form-control"
-						ng-options="heroi as heroi.nome for heroi in cadCtrl.personagens" ng-required="true" ng-model="cadCtrl.personagem.personagem"></select>
-					<div ng-if="cadCtrl.user.heroi">
-						<span>Vida:{{vm.user.heroi.vida}}</span><br>
-						<span>Ataque:{{vm.user.heroi.ataque}}</span><br>
-						<span>Forca:{{vm.user.heroi.forca}}</span><br>
-						<span>Inteligencia:{{vm.user.heroi.inteligencia}}</span><br>
-						<span>Defesa:{{vm.user.heroi.defesa}}</span><br>
-						<span>Velocidade:{{vm.user.heroi.velocidade}}</span><br>
-						<span>Poder:{{vm.user.heroi.poder}}</span><br>
-					</div>
-				</div>
-				<button type="submit" class="btn btn-success">Cadastrar</button>
-				<button ng-click="cadCtrl.irLogin()" class="btn btn-primary">Voltar</button>
-			</form>
-		</div>
+	
+
+
+	<div ng-view></div>
+
+
+	
 
 
 	</div>

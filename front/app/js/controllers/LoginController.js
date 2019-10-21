@@ -1,46 +1,37 @@
-ModuloPrincipal.controller("LoginController", function ($scope, LoginService,  $location) {
-	
+ModuloPrincipal.controller("LoginController", LoginController );
+
+LoginController.$inject = ["$scope", "LoginService", "$location"];
+
+function LoginController($scope, LoginService,  $location){
+
 	const self = this;
 	self.message = "";
 	self.service = LoginService;
-	self.personagens = [];
+	
+	self.login = null;
+	self.cadastrar = null;
 
 	self.titulo = "Heróis";
+
 	self.autenticar = {
 		nickname: null,
 		senha: null
 	} ;
 
-	self.personagem = {
-		nickname: null,
-		senha: null,
-		personagem: null
+	self.entrar= (autenticar) => {
+		console.log(autenticar);
+		self.service.logar(autenticar);
 	}
+	
 
 
-	self.init = function(){
-		self.login = true;
-		self.carregarHerois();
-	}
 
-	self.carregarHerois = function () {
-		self.service.getHerois().success(function (data) {
-			self.personagens = data;
-			
-		}).error(function (data, status) {
-			self.message = "Aconteceu um problema: " + data;
-		});
-	};
 
 	self.irCadastrar = function () {
-		self.cadastrar = true;
-		self.login = false;
-	}
-
-	self.irLogin = function () {
-		self.login = true;
-		self.cadastrar = false;
+		$location.path("/cadastro");
 	}
 
 	
-});
+
+}
+	

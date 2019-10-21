@@ -1,0 +1,31 @@
+<div ng-controller="CadastroController as cadCtrl" ng-init="cadCtrl.init()">
+        
+        <h3>Cadastrar</h3>
+        <form ng-submit="cadCtrl.cadastro(cadCtrl.user)">
+            <div class="form-group">
+                <label>Login</label>
+                <input type="texto" class="form-control" placeholder="SuperFulano012" ng-model="cadCtrl.user.nickname" ng-required="true">
+            </div>
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="password" class="form-control" ng-model="cadCtrl.user.senha" ng-required="true">
+            </div>
+            
+            <div class="form-group">
+                <label>Heroi</label>
+                <select name="heroi"  class="form-control"
+                    ng-options="personagem as personagem.nome for personagem in loginCtrl.personagens" ng-required="true" ng-model="loginCtrl.user.personagem"></select>
+                <div ng-if="cadCtrl.login">
+                    <span>Vida:{{vm.user.heroi.vida}}</span><br>
+                    <span>Ataque:{{vm.user.heroi.ataque}}</span><br>
+                    <span>Forca:{{vm.user.heroi.forca}}</span><br>
+                    <span>Inteligencia:{{vm.user.heroi.inteligencia}}</span><br>
+                    <span>Defesa:{{vm.user.heroi.defesa}}</span><br>
+                    <span>Velocidade:{{vm.user.heroi.velocidade}}</span><br>
+                    <span>Poder:{{vm.user.heroi.poder}}</span><br>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+            <button ng-click="cadCtrl.irLogin()" class="btn btn-primary">Voltar</button>
+        </form>
+    </div>

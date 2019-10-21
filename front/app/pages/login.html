@@ -1,0 +1,17 @@
+<div ng-controller="LoginController as loginCtrl" >
+        <form ng-submit="loginCtrl.entrar(loginCtrl.autenticar)">
+            <div class="form-group">
+                <label>Login</label>
+                <input type="texto" class="form-control" placeholder="SuperFulano012" ng-model="loginCtrl.autenticar.nickname" ng-required="true">
+            </div>
+            <div class="form-group">
+                <label>Senha</label>
+                <input type="password" class="form-control" ng-model="loginCtrl.autenticar.senha" ng-required="true">
+            </div>
+            <button class="btn btn-success" type="submit">Entrar</button>
+            <button class="btn btn-primary" ng-click="loginCtrl.irCadastrar()">Cadastrar</button>
+
+
+
+        </form>
+    </div>

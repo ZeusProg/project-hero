@@ -41,6 +41,7 @@ public class Jogador implements Serializable {
 	@NotNull
 	private String senha;
 	//muitos para um 
+	
 	@ManyToOne
 	@JoinColumn(name = "idHeroi")
 	private Heroi heroi;
